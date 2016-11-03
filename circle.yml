@@ -1,15 +1,8 @@
-general:
-   artifacts:
-     - $CIRCLE_TEST_REPORTS
- 
-     
-dependencies:
- override: 
-  - mvn dependency:resolve
-
+test:
+ post:
+   - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+   - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
 test:
   override:
-    - mvn clean install -U
-  post:
-    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
-    - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - mvn clean package
+    
