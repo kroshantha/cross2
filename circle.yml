@@ -1,10 +1,4 @@
-dependencies:
-  override:
-    - mvn --fail-never dependency:go-offline || true
 
-test:
-  override:
-    - mvn clean package
 
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
