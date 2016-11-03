@@ -304,32 +304,7 @@ CSV files of various types.
         <artifactId>javancss-maven-plugin</artifactId>
         <version>2.0</version>
       </plugin>
-<plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-surefire-plugin</artifactId>
-      <configuration>
-        <excludes>
-          <exclude>**/*IntegrationTest.java</exclude>
-        </excludes>
-      </configuration>
-      <executions>
-        <execution>
-          <id>integration-test</id>
-          <goals>
-            <goal>test</goal>
-          </goals>
-          <phase>integration-test</phase>
-          <configuration>
-            <excludes>
-              <exclude>none</exclude>
-            </excludes>
-            <includes>
-              <include>**/*IntegrationTest.java</include>
-            </includes>
-          </configuration>
-        </execution>
-      </executions>
-    </plugin>
+
       <!-- We need to add our test data files to rat exclusions -->
       <plugin>
         <groupId>org.apache.rat</groupId>
